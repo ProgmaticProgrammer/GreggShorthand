@@ -6,6 +6,8 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
 
+import androidx.annotation.NonNull;
+
 import org.jetbrains.annotations.NotNull;
 
 
@@ -15,8 +17,7 @@ public class Shape {
     protected RectF mRegion;
 
     Shape() {
-        Init();
-        mRegion = new RectF(0.0f, 0.0f, 0.0f, 0.0f);
+        this(0.0f, 0.0f, 0.0f, 0.0f);
     }
     Shape(@NotNull Shape s) {
         mPath = new Path(s.mPath);
@@ -24,10 +25,12 @@ public class Shape {
         mRegion = new RectF(s.mRegion);
     }
     Shape(RectF r) {
-        Init();
-        mRegion = new RectF(r);
+        this(r.left, r.top, r.right, r.bottom);
     }
-
+    Shape(float width,
+          float height) {
+        this(0.0f, 0.0f, width, height);
+    }
     Shape(float left,
           float top,
           float right,

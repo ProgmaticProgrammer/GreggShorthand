@@ -38,29 +38,10 @@ public class MyView extends View {
     }
 
     public void initMyView() {
-        shapes = MyShape.from("K G R L N M T D H I He The Thr");
-//        shapes = new ArrayList<>();
-//        shapes.add(MyShape.getShape("K").offset(0.0f, 0.0f));
-//        shapes.add(MyShape.getShape("G").offset(50.0f, 0.0f));
-//        shapes.add(MyShape.getShape("R").offset(100.0f, 0.0f));
-//        shapes.add(MyShape.getShape("L").offset(150.0f, 0.0f));
-//
-//        shapes.add(MyShape.getShape("N").offset(0.0f, 50.0f));
-//        shapes.add(MyShape.getShape("M").offset(50.0f, 50.0f));
-//        shapes.add(MyShape.getShape("T").offset(100.0f, 50.0f));
-//        shapes.add(MyShape.getShape("D").offset(150.0f, 50.0f));
-//
-//        shapes.add(MyShape.getShape("H").offset(0.0f, 120.0f));
-//        shapes.add(MyShape.getShape("I").offset(50.0f, 100.0f));
-//        shapes.add(MyShape.getShape("He").offset(100.0f, 100.0f));
-//
-//        shapes.add(MyShape.getShape("The").offset(0.0f, 150.0f));
-//        shapes.add(MyShape.getShape("Tha").offset(50.0f, 150.0f));
-    }
-
-    void drawOn(Canvas canvas) {
-        for (Shape shape : shapes)
-            shape.draw(canvas);
+        shapes = new ArrayList<>();
+        shapes.addAll(MyShape.from("I will"));
+        shapes.addAll(MyShape.from("he can"));
+        shapes.addAll(MyShape.from("it will"));
     }
 
     @Override
@@ -69,7 +50,8 @@ public class MyView extends View {
 
         long starting = System.nanoTime();
 
-        drawOn(canvas);
+        for (Shape shape : shapes)
+            shape.draw(canvas);
 
         long end = System.nanoTime();
 

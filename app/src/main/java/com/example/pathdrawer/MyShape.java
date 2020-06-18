@@ -190,27 +190,57 @@ public class MyShape {
         }
     }
     static Map<String, Shape> consonants = new HashMap<String, Shape>() {{
-        put("K", new K());
-        put("G", new G());
-        put("R", new R());
-        put("L", new L());
+        put("k", new K());
+        put("can", new K());
 
-        put("N", new N());
-        put("M", new M());
-        put("T", new T());
-        put("D", new D());
+        put("g", new G());
+        put("go", new G());
+        put("good", new G());
 
-        put("I", new I());
-        put("H", new H());
-        put("He", new He());
+        put("r", new R());
+        put("are", new R());
+        put("our", new R());
+        put("hour", new R());
 
-        put("The", new The());
-        put("Thr", new Thr());
+        put("l", new L());
+        put("will", new L());
+        put("well", new L());
+
+        put("n", new N());
+        put("in", new N());
+        put("not", new N());
+
+        put("m", new M());
+        put("am", new M());
+        put("more", new M());
+
+        put("t", new T());
+        put("it", new T());
+        put("at", new T());
+
+        put("d", new D());
+        put("would", new D());
+
+        put("i", new I());
+
+        put("h", new H());
+        put("a", new H());
+        put("an", new H());
+
+        put("he", new He());
+
+        put("the", new The());
+        put("thr", new Thr());
+        put("there", new Thr());
+        put("their", new Thr());
     }};
 
     static Shape getShape(String s) {
-        if (consonants.containsKey(s)) return consonants.get(s);
-        else return new Shape();
+        String key = s.toLowerCase();
+        if (consonants.containsKey(key))
+            return new Shape(consonants.get(key));
+        else
+            return new Shape();
     }
 
     static final float STROKE_GAP = 10.0f;
@@ -243,8 +273,8 @@ public class MyShape {
         R(50.0f, 30.0f),
         L(80.0f, 30.0f),
 
-        N(50.0f, 50.0f),
-        M(80.0f, 50.0f),
+        N(30.0f, 30.0f),
+        M(50.0f, 50.0f),
         T(20.0f, 20.0f),
         D(40.0f, 40.0f),
 
